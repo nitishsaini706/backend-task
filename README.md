@@ -1,6 +1,6 @@
 ## Backend task for notes app
 
-- Deployed the code on vercel [URL for backend]()
+- Deployed the code on vercel [URL for backend](https://backend-task-alpha.vercel.app)
 - You can test the routes using postman/thunderclient
 - redis and test have been commented as deploying on vercel was causing issues.
 - I've used express as backend ( quick setup and deployment on vercel) with mongo db as data base ( no sql db as schema was not defined and easy to setup ), for security i've use jwt token.
