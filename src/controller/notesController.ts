@@ -1,7 +1,7 @@
 import * as notesService from "../services/noteService"
 import { Request, Response } from "express";
 import { ResponseHandler } from "../contants/responseHandler"
-import { redisService } from "../services/redis"
+// import { redisService } from "../services/redis"
 
 export const notesList = async (req: Request, res: Response) => {
     try {

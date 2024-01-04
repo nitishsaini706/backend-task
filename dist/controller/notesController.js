@@ -35,6 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.share = exports.search = exports.deleteNote = exports.editNote = exports.createNote = exports.noteById = exports.notesList = void 0;
 const notesService = __importStar(require("../services/noteService"));
 const responseHandler_1 = require("../contants/responseHandler");
+// import { redisService } from "../services/redis"
 const notesList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Need to deploy key avlue databse to use redis as url cannot be 127.0.0.1 on vercel
