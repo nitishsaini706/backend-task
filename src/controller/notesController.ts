@@ -52,7 +52,12 @@ export const noteById = async (req: Request, res: Response) => {
 export const createNote = async (req: Request, res: Response) => {
     try {
         const data = req.body;
-        const create = await notesService.createNote(data);
+        const authToken = req.headers.authorization;
+        const userId = authToken && authToken.startsWith('Bearer ')
+            ? authToken.slice(7)
+            : authToken;
+        
+        const create = await notesService.createNote(data,userId);
         if(create.code == 0){
             res.status(500);
             ResponseHandler.sendErrorResponse(res, { message: create.msg, errors: create.msg });

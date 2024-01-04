@@ -83,7 +83,11 @@ exports.noteById = noteById;
 const createNote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
-        const create = yield notesService.createNote(data);
+        const authToken = req.headers.authorization;
+        const userId = authToken && authToken.startsWith('Bearer ')
+            ? authToken.slice(7)
+            : authToken;
+        const create = yield notesService.createNote(data, userId);
         if (create.code == 0) {
             res.status(500);
             responseHandler_1.ResponseHandler.sendErrorResponse(res, { message: create.msg, errors: create.msg });

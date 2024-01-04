@@ -49,9 +49,9 @@ const share = (id) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.share = share;
-const createNote = (input) => __awaiter(void 0, void 0, void 0, function* () {
+const createNote = (input, userId) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let user = yield user_1.UserModel.findOne({ name: input.user.name });
+        let user = yield user_1.UserModel.findOne({ token: userId });
         if (!user) {
             return { msg: "User not found", code: 0 };
         }

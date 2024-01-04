@@ -14,6 +14,7 @@ const UserSchema:Schema = new Schema({
     name:{type:String,required:true,unique:true},
     email: { type: String, required: true },
     password: { type: String, required: true },
+    token:{type:String},
     notes:{type:[mongoose.Types.ObjectId],ref:"notes"},
 },{
     timestamps:true

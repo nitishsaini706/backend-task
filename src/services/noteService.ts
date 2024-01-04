@@ -32,9 +32,9 @@ export const share = async (id: string) => {
     }
 }
 
-export const createNote = async (input: any) => {
+export const createNote = async (input: any,userId:any) => {
     try {
-        let user = await UserModel.findOne({ name: input.user.name });
+        let user = await UserModel.findOne({ token: userId });
 
         if (!user) {
             return { msg: "User not found", code: 0 };

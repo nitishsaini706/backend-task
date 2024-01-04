@@ -64,6 +64,7 @@ function login(user) {
                 const token = jwt.sign({ _id: (_a = foundUser._id) === null || _a === void 0 ? void 0 : _a.toString(), name: foundUser.name }, index_1.SECRET_KEY, {
                     expiresIn: '2 days',
                 });
+                yield user_1.UserModel.updateOne({ email: user.email }, { $set: { token: token } });
                 const result = {
                     _id: foundUser._id,
                     name: foundUser.name,

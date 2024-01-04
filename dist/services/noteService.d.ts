@@ -32,7 +32,7 @@ export declare const getList: () => Promise<(mongoose.Document<unknown, {}, {
 }>)[]>;
 export declare const getNote: (id: string) => Promise<{}>;
 export declare const share: (id: string) => Promise<{}>;
-export declare const createNote: (input: any) => Promise<{
+export declare const createNote: (input: any, userId: any) => Promise<{
     msg: string;
     code: number;
 }>;

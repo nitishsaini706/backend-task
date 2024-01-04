@@ -1,5 +1,8 @@
 ## Backend task for notes app
 
+## I'm using free tire of Mongo db cluster which give downtime for few hours
+
+
 - Deployed the code on vercel [URL for backend](https://backend-task-alpha.vercel.app)
 - You can test the routes using postman/thunderclient
 - redis and test have been commented as deploying on vercel was causing issues.

@@ -25,7 +25,7 @@ export async function login(user:User) {
             const token = jwt.sign({ _id: foundUser._id?.toString(), name: foundUser.name }, SECRET_KEY, {
                 expiresIn: '2 days',
             });
-            
+            await UserModel.updateOne({email:user.email},{$set:{token:token}});
             const result = {
                 _id:foundUser._id,
                 name:foundUser.name,

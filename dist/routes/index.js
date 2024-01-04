@@ -34,21 +34,21 @@ const router = express_1.default.Router();
 router.get("/notes", index_1.auth, notesController.notesList);
 router.get("/search", [
     (0, express_validator_1.query)("q").exists().withMessage("Id is required")
-], index_1.auth, notesController.notesList);
+], index_1.checkRequestValidationMiddleware, index_1.auth, notesController.notesList);
 router.get("/notes", [
     (0, express_validator_1.param)("id").exists().withMessage("Id is required")
-], index_1.auth, notesController.noteById);
+], index_1.checkRequestValidationMiddleware, index_1.auth, notesController.noteById);
 router.post("/notes", [
     (0, express_validator_1.param)("id").exists().withMessage("Id is required")
-], index_1.auth, notesController.share);
-router.post("/notes", [
+], index_1.checkRequestValidationMiddleware, index_1.auth, notesController.share);
+router.post("/create", [
     (0, express_validator_1.body)("description").exists().withMessage("description is required"),
     (0, express_validator_1.body)("title").exists().withMessage("title is required"),
-], index_1.auth, notesController.createNote);
+], index_1.checkRequestValidationMiddleware, index_1.auth, notesController.createNote);
 router.delete("/notes", [
     (0, express_validator_1.param)("id").exists().withMessage("Id is required")
 ], index_1.auth, notesController.deleteNote);
 router.put("/notes", [
     (0, express_validator_1.param)("id").exists().withMessage("Id is required")
-], index_1.auth, notesController.editNote);
+], index_1.checkRequestValidationMiddleware, index_1.auth, notesController.editNote);
 exports.default = router;
